@@ -26,24 +26,24 @@ class Encryptor
   end
 
   def encrypt_file(filename, rotation)
+    binding.pry
     input = File.open(filename, "r")
     text = input.read
     encrypted = encrypt(text, rotation)
     out_file = filename + ".encrypted"
     output = File.open(out_file, "w")
     output.write(encrypted)
-    # binding.pry
     output.close
   end
 
   def decrypt_file(filename, rotation)
+    binding.pry
     input = File.open(filename, "r")
     text = input.read
     decrypted = decrypt(text, rotation)
     out_file = filename.gsub("encrypted", "decrypted")
     output = File.open(out_file, "w")
     output.write(decrypted)
-    # binding.pry
     output.close
   end
 
